@@ -2,19 +2,20 @@
 # https://github.com/styleguide/ruby
 #
 
-class Experiment
+class ExperimentAtMoment
 
 end
 
 class Sample
 
-  def hello()
+  def hello
     greetings.each do |greeting|
       puts greeting
     end
   end
 
   def self.say(message)
+    puts message.object_id
     puts "Sample: #{message}"
   end
 
@@ -28,6 +29,8 @@ end
 
 s = Sample.new()
 s.hello()
-Sample.say("Hello World!")
-Sample.say 1
-Sample.say s
+string = "Hello World"
+puts string.object_id
+Sample.say("Hello World")
+# puts s.object_id
+# Sample.say s
