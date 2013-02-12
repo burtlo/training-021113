@@ -32,7 +32,8 @@ Feedback: [http://goo.gl/2AEqH](http://goo.gl/2AEqH)
 * Intro to Testing (RSpec)
 
 ### Tuesday
-
+* Methods, Methods, Methods
+* Ruby Object Orient Programming
 * Event Manager
 
 ### Wednesday 
@@ -54,3 +55,4 @@ Feedback: [http://goo.gl/2AEqH](http://goo.gl/2AEqH)
 
 * ERB and other template languages
 * Test-Driven Development
+* Internationalization and Localization
