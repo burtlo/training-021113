@@ -21,8 +21,4 @@ class Recipe
       servings: servings }
   end
 
-  def name
-    @name
-  end
-
 end
