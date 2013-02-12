@@ -21,4 +21,28 @@ class Recipe
       servings: servings }
   end
 
+  def ingredients
+    @ingredients ||= []
+  end
+
+  def include?(*items)
+    has_ingredients(items).include? true
+  end
+
+  def all?(*items)
+    !has_ingredients(items).include? false
+  end
+
+  private
+
+  def has_ingredients(items)
+    items.map {|item| has_ingredient(item) }
+  end
+
+  def has_ingredient(item)
+    !! ingredients.find { |ingredient| ingredient.include? item }
+  end
+
+
+
 end
