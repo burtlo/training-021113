@@ -15,11 +15,29 @@ class PersonalChef
     "sourdough"
   end
 
+  def make_eggs(number)
+    number.times { puts "Making Egg" }
+    puts "I'm done"
+    self
+  end
+
 end
 
 class Butler
   def open_front_door
     puts "Opening Front Door, SIRRRRRR!"
+  end
+
+  def open_door(name)
+    if white_listed_doors.include? name.to_s.downcase
+      puts "Opening the #{name.capitalize} Door SIRRRRRR!"
+    else
+      puts "I won't go in there SIRRRRRR!"
+    end
+  end
+
+  def white_listed_doors
+    [ "front", "back" ]
   end
   
   def good_morning

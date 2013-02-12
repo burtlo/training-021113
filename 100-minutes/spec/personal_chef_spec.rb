@@ -47,4 +47,24 @@ describe PersonalChef do
     end
     
   end
+
+  describe "#make_eggs" do
+
+    describe "when given 2 eggs" do
+      it "makes 2 eggs and then reports being done" do
+        2.times { chef.should_receive(:puts).with("Making Egg") }
+        chef.should_receive(:puts).with("I'm done")
+        chef.make_eggs(2)
+      end
+    end
+
+    describe "when given 3 eggs" do
+      it "makes 3 eggs and then reports being done" do
+        3.times { chef.should_receive(:puts).with("Making Egg") }
+        chef.should_receive(:puts).with("I'm done")
+        chef.make_eggs(3)
+      end
+    end
+
+  end
 end
