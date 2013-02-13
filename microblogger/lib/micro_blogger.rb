@@ -47,15 +47,16 @@ class MicroBlogger
   end
 
   def actions
-    @actions ||= [ TweetAction.new, DirectMessageAction.new, NoAction.new ]
+    @actions ||= [ TweetAction.new, DirectMessageAction.new ]
+  end
+
+  def action_for_command(command)
+    actions.find {|action| action.apply?(command)} || NoAction.new
   end
 
   def process_command(command)
-    execute, message = command.split(" ",2)
-
-    current_action = actions.find {|action| action.apply?(execute)}
-    current_action.execute(self,message)
-
+    extracted_command, message = command.split(" ",2)
+    action_for_command(extracted_command).execute(self,message)
   end
 
   def dm(username,message)
