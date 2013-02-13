@@ -4,7 +4,6 @@ Bitly.use_api_version_3
 
 class TweetAction
 
-  # "tweet"
   def apply?(criteria)
     criteria == "tweet"
   end

@@ -37,9 +37,8 @@ describe MicroBlogger do
         fake_client.should_receive(:update).with(expected_message)
         blogger.tweet(message)
       end
-
-
     end
+
     context "when the tweet is less 140 characters" do
       it "should send an update" do
         message = "MicroBlogger Rocks!"
