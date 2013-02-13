@@ -1,4 +1,6 @@
 require 'jumpstart_auth'
+require 'bitly'
+Bitly.use_api_version_3
 
 class TweetAction
 
@@ -45,7 +47,7 @@ class MicroBlogger
   end
 
   def actions
-    [ TweetAction.new, DirectMessageAction.new, NoAction.new ]
+    @actions ||= [ TweetAction.new, DirectMessageAction.new, NoAction.new ]
   end
 
   def process_command(command)

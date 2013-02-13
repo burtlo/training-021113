@@ -26,6 +26,20 @@ describe MicroBlogger do
       blogger.tweet(message)
     end
 
+    context "when the tweet contains a url" do
+      it "should shorten the url in the message" do
+        bitly = Bitly.new('hungryacademy', 'R_430e9f62250186d2612cca76eee2dbc6')
+        full_url = "http://jumpstartlab.com/courses/"
+        shortened_url = bitly.shorten(full_url).short_url
+
+        message = "Check out #{full_url}"
+        expected_message = "Check out #{shortened_url}"
+        fake_client.should_receive(:update).with(expected_message)
+        blogger.tweet(message)
+      end
+
+
+    end
     context "when the tweet is less 140 characters" do
       it "should send an update" do
         message = "MicroBlogger Rocks!"
