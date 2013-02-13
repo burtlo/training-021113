@@ -45,14 +45,6 @@ class MicroBlogger
     @client ||= JumpstartAuth.twitter
   end
 
-  def actions
-    @actions ||= [ TweetAction.new, DirectMessageAction.new ]
-  end
-
-  def action_for_command(command)
-    actions.find {|action| action.apply?(command)} || NoAction.new
-  end
-
   def process_command(command)
     extracted_command, message = command.split(" ",2)
     action_for_command(extracted_command).execute(self,message)
@@ -64,6 +56,16 @@ class MicroBlogger
 
   def tweet(message)
     client.update(message) if valid_tweet_message_length?(message.length)
+  end
+
+  def actions
+    @actions ||= [ TweetAction.new, DirectMessageAction.new ]
+  end
+
+  private
+
+  def action_for_command(command)
+    actions.find {|action| action.apply?(command)} || NoAction.new
   end
 
   def valid_tweet_message_length?(length)
