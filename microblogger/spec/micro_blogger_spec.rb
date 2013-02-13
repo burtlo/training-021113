@@ -44,19 +44,42 @@ describe MicroBlogger do
     end
   end
 
+  describe "#dm" do
+    it "should send a direct mesasge" do
+      fake_client.should_receive(:update).with("d username message")
+      blogger.dm("username","message")
+    end
+  end
+
   describe "#process_command" do
-    context "when given the command 'tweet MicroBlogger rocks!'" do
-      it "should send an update" do
-        fake_client.should_receive(:update).with('MicroBlogger rocks')
-        blogger.process_command('tweet MicroBlogger rocks')
+
+    describe "tweet" do
+      context "when given the command 'tweet MicroBlogger rocks!'" do
+        it "should send an update" do
+          blogger.should_receive(:tweet).with('MicroBlogger rocks')
+          blogger.process_command('tweet MicroBlogger rocks')
+        end
       end
+
     end
 
     context "when given the command 'exit I really want to quit'" do
       it "should not send an update" do
-        fake_client.should_not_receive(:update)
+        blogger.should_not_receive(:tweet)
         blogger.process_command('exit I really want to quit')
       end
+    end
+
+    describe "dm" do
+      context "when given the command 'dm j3 Happy Belated Birthday'" do
+        it "should send a dm to j3 with the message 'Happy Belated Birthday'" do
+
+          blogger.should_receive(:dm).with("j3","Happy Belated Birthday")
+          blogger.process_command 'dm j3 Happy Belated Birthday'
+
+        end
+      end
+
     end
 
   end
