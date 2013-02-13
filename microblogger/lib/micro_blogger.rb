@@ -1,6 +1,7 @@
 require 'jumpstart_auth'
 require 'bitly'
 Bitly.use_api_version_3
+require 'klout'
 
 class TweetAction
 
@@ -45,6 +46,11 @@ class MicroBlogger
     @client ||= JumpstartAuth.twitter
   end
 
+  # @return [ "franklinwebber", "barackobama", "j3", "twitter" ]
+  def followers
+    client.followers.map {|follower| follower["screen_name"] }
+  end
+
   def process_command(command)
     extracted_command, message = command.split(" ",2)
     action_for_command(extracted_command).execute(self,message)
@@ -55,6 +61,20 @@ class MicroBlogger
   end
 
   def tweet(message)
+    bitly = Bitly.new('hungryacademy', 'R_430e9f62250186d2612cca76eee2dbc6')
+
+    # from the message I want to find a url in the message
+    urls = message.split.collect do |word|
+      word if word.start_with? "http"
+    end
+
+    urls.compact!
+
+    urls.each do |url|
+      shortened_url = bitly.shorten(url).short_url
+      message.gsub!(url,shortened_url)
+    end
+
     client.update(message) if valid_tweet_message_length?(message.length)
   end
 

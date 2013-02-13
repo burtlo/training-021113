@@ -19,6 +19,18 @@ describe MicroBlogger do
     blogger
   end
 
+  describe "#rank_friends" do
+    it "should return a list of ranked friends with their scores" do
+
+      blogger.stub(:followers).and_return([ "michelleobama", "octanner", "j3" ])
+      result = blogger.rank_friends
+      expect(result).to eq [ "michelleobama", "j3", "octanner" ]
+
+    end
+    
+    
+  end
+  
   describe "#tweet" do
     it "should send a tweet with my message" do
       message = "MicroBlogger Rocks!"
