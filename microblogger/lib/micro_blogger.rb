@@ -51,6 +51,39 @@ class MicroBlogger
     client.followers.map {|follower| follower["screen_name"] }
   end
 
+  def rank_friends
+    followers.sort_by {|follower| klout_score_for_follower(follower) }.reverse
+    # followers_with_scores_sorted.map {|name,score| name }
+  end
+
+  def followers_with_scores_sorted
+    followers_with_scores.sort_by {|name,score| score }.reverse
+  end
+
+  def followers_with_scores
+    fws = followers.map do |follower|
+      [follower, klout_score_for_follower(follower)]
+    end
+    # Converting an array of arrays into a hash [ [key, value], [key, value] ]
+    Hash[fws]
+  end
+
+  def klout_score_for_follower(follower)
+    begin
+      Klout.api_key = 'xu9ztgnacmjx3bu82warbr3h'
+      identity = Klout::Identity.find_by_screen_name(follower)
+      user = Klout::User.new(identity.id)
+      user.score.score
+    rescue Klout::NotFound
+      unknown_klout_score
+    end
+
+  end
+
+  def unknown_klout_score
+    0.0
+  end
+
   def process_command(command)
     extracted_command, message = command.split(" ",2)
     action_for_command(extracted_command).execute(self,message)

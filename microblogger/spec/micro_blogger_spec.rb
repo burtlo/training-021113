@@ -23,8 +23,11 @@ describe MicroBlogger do
     it "should return a list of ranked friends with their scores" do
 
       blogger.stub(:followers).and_return([ "michelleobama", "octanner", "j3" ])
+      blogger.stub(:klout_score_for_follower).with("michelleobama").and_return(83)
+      blogger.stub(:klout_score_for_follower).with("j3").and_return(82)
+      blogger.stub(:klout_score_for_follower).with("octanner").and_return(93)
       result = blogger.rank_friends
-      expect(result).to eq [ "michelleobama", "j3", "octanner" ]
+      expect(result).to eq [ "octanner", "michelleobama", "j3" ]
 
     end
     
