@@ -3,13 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="34bc9405-f08f-4fbc-a08c-78a398e65918" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/micro_blogger.rb" afterPath="$PROJECT_DIR$/lib/micro_blogger.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/micro_blogger_spec.rb" afterPath="$PROJECT_DIR$/spec/micro_blogger_spec.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/rspec_guard_result" afterPath="$PROJECT_DIR$/tmp/rspec_guard_result" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="microblogger.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="34bc9405-f08f-4fbc-a08c-78a398e65918" time="1360772588125" ignored="false" />
-    <file path="/micro_blogger.rb" changelist="34bc9405-f08f-4fbc-a08c-78a398e65918" time="1360775126904" ignored="false" />
+    <file path="/micro_blogger.rb" changelist="34bc9405-f08f-4fbc-a08c-78a398e65918" time="1360776775440" ignored="false" />
     <file path="/micro_blogger_spec.rb" changelist="34bc9405-f08f-4fbc-a08c-78a398e65918" time="1360776014204" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,19 +27,19 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="micro_blogger_spec.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="micro_blogger_spec.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/micro_blogger_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="29" selection-start="664" selection-end="664" vertical-scroll-proportion="0.29300776">
+            <state line="28" column="29" selection-start="664" selection-end="664" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="micro_blogger.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="micro_blogger.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/micro_blogger.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="65" selection-end="65" vertical-scroll-proportion="0.0">
+            <state line="50" column="0" selection-start="744" selection-end="744" vertical-scroll-proportion="0.20833333">
               <folding>
                 <element signature="n#TweetAction#0;n#!!top" expanded="false" />
                 <element signature="n#DirectMessageAction#0;n#!!top" expanded="false" />
@@ -67,8 +67,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/lib/micro_blogger.rb" />
         <option value="$PROJECT_DIR$/spec/micro_blogger_spec.rb" />
+        <option value="$PROJECT_DIR$/lib/micro_blogger.rb" />
       </list>
     </option>
   </component>
@@ -257,21 +257,21 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/spec/micro_blogger_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="29" selection-start="664" selection-end="664" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/micro_blogger.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="65" selection-end="65" vertical-scroll-proportion="0.0">
+        <state line="50" column="0" selection-start="744" selection-end="744" vertical-scroll-proportion="0.20833333">
           <folding>
             <element signature="n#TweetAction#0;n#!!top" expanded="false" />
             <element signature="n#DirectMessageAction#0;n#!!top" expanded="false" />
             <element signature="n#NoAction#0;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/micro_blogger_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="29" selection-start="664" selection-end="664" vertical-scroll-proportion="0.29300776">
-          <folding />
         </state>
       </provider>
     </entry>
