@@ -94,21 +94,25 @@ class MicroBlogger
   end
 
   def tweet(message)
-    bitly = Bitly.new('hungryacademy', 'R_430e9f62250186d2612cca76eee2dbc6')
-
-    # from the message I want to find a url in the message
-    urls = message.split.collect do |word|
-      word if word.start_with? "http"
-    end
-
-    urls.compact!
-
-    urls.each do |url|
-      shortened_url = bitly.shorten(url).short_url
-      message.gsub!(url,shortened_url)
-    end
-
+    message = shorten_urls_in_message(message)
     client.update(message) if valid_tweet_message_length?(message.length)
+  end
+
+  def shorten_urls_in_message(message)
+    urls_in_message(message).each {|url| message.gsub!(url,shorten_url(url)) }
+    message
+  end
+
+  def urls_in_message(message)
+    message.split.map {|word| word if word.start_with? "http" }.compact
+  end
+
+  def bitly
+    @bitly ||= Bitly.new('hungryacademy', 'R_430e9f62250186d2612cca76eee2dbc6')
+  end
+
+  def shorten_url(url)
+    bitly.shorten(url).short_url
   end
 
   def actions
