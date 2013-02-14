@@ -15,7 +15,12 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.create params[:article]
-    redirect_to article_path(@article)
+    
+    if @article.valid?
+      redirect_to article_path(@article)
+    else
+      render :new
+    end
   end
 
   def edit

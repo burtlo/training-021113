@@ -1,9 +1,9 @@
 <h1><%= @article.title %></h1>
 <p><%= @article.body %></p>
 
-<%= render partial: "comment", collection: @article.comments  %>
+<%= render partial: "articles/comment", collection: @article.comments  %>
 
-<%= render "comment_form" %>
+<%= render "articles/comment_form" %>
 
 <p>
   <%= link_to "Edit", edit_article_path(@article) %>
