@@ -1,6 +1,12 @@
 <h1><%= @article.title %></h1>
 <p><%= @article.body %></p>
 
+<% @article.comments.each do |comment| %>
+  <div class="comment">
+    <h4>Comment by <%= comment.author %></h4>
+    <p><%= comment.body %></p>
+  </div>
+<% end %>
 
 <p>
   <%= link_to "Edit", edit_article_path(@article) %>
