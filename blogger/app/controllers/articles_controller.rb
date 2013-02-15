@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
 
+  before_filter :require_login, except: [ :index, :show ]
+
   def index
     @articles = Article.all
   end
@@ -10,12 +12,13 @@ class ArticlesController < ApplicationController
   end
 
   def new
+    login_check
     @article = Article.new
   end
 
   def create
     @article = Article.create params[:article]
-    
+
     if @article.valid?
       redirect_to article_path(@article)
     else
