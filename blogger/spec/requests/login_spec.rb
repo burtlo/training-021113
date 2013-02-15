@@ -24,13 +24,9 @@ describe "Logging In" do
       it "redirects me to the articles index" do
 
         visit "/login"
-        sleep 4
         fill_in "Username", with: "admin"
-        sleep 4
         fill_in "Password", with: "admin"
-        sleep 4
         click_button "Login"
-        sleep 4
 
         title_text = page.find(:xpath, '//h1').text
         expect(title_text).to eq "Articles"
