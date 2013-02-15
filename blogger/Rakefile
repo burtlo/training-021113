@@ -5,3 +5,34 @@
 require File.expand_path('../config/application', __FILE__)
 
 Blogger::Application.load_tasks
+
+
+# desc
+# task
+# namespace
+#
+
+# rake noun:verb
+
+namespace :tags do
+  task :setup do
+    puts "Loading this up for display reasons"
+    puts `ls -l`
+  end
+
+  desc "Clean up Ugly Tags"
+  task :clean => [ :environment, :setup ] do
+    
+    Tag.all.each do |tag|
+      # if the tag name contains an uppercase character then nuke it.
+    end
+    
+    puts "Cleaning Tags"
+  end
+  
+  desc "List all tags"
+  task :list => :environment do
+    puts Tag.all.map {|tag| tag.name }.join(", ")
+  end
+end
+

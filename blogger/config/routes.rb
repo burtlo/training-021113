@@ -1,8 +1,10 @@
 Blogger::Application.routes.draw do
 
   resources :articles do
-    resources :comments
+    resources :comments, only: [ :create ]
   end
+
+  resources :tags, only: [ :index, :show ]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -2,9 +2,9 @@ class Article < ActiveRecord::Base
   attr_accessible :title, :body, :tag_list
   validates :title, :body, presence: true
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
 
 
