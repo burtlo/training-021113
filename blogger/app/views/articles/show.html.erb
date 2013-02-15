@@ -1,17 +1,17 @@
 <h1><%= @article.title %></h1>
-<p><%= @article.body %></p>
+<p class="body"><%= @article.body %></p>
 
 <%= render partial: "articles/comment", collection: @article.comments  %>
 
 <%= render "articles/comment_form" %>
 
-<p>
+<p class="article_actions">
   <%= link_to "Edit", edit_article_path(@article) %>
 </p>
-<p>
+<p class="article_actions">
   <%= link_to "Delete", article_path(@article), 
         method: 'delete', confirm: "Are you sure you want to delete?" %>
 </p>
-<p>
+<p class="article_actions">
   <%= link_to "Back to Index", articles_path %>
 </p>
