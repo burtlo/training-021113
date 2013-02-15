@@ -17,7 +17,7 @@ Blogger::Application.load_tasks
 namespace :tags do
   task :setup do
     puts "Loading this up for display reasons"
-    puts `ls -l`
+    # puts `ls -l`
   end
 
   desc "Clean up Ugly Tags"
@@ -25,6 +25,10 @@ namespace :tags do
     
     Tag.all.each do |tag|
       # if the tag name contains an uppercase character then nuke it.
+      if tag.name =~ /[A-Z]/
+        puts "Destroying: #{tag.name}"
+        tag.destroy
+      end
     end
     
     puts "Cleaning Tags"
