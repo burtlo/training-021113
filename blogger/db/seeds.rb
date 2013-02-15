@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+admin = Author.find_by_username("admin")
+
+unless admin
+  puts "Creating Author"
+  Author.create username: "admin", email: "admin@admin.com", password: "admin"
+else
+  puts "Author: #{admin} exists"
+end
