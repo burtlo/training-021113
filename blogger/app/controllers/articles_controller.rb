@@ -12,7 +12,6 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    login_check
     @article = Article.new
   end
 
